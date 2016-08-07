@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body, html
+  width: 100%
+  height: 100%
+
+body
+  font: normal 14px/1 'Open Sans'
+
+li
+  list-style: none
+
+input, button, textarea
+  font: inherit
+
+.container
+  position: relative
+  width: 100%
+  height: 100%
+
+.sidebar
+  width: 270px
+  background-color: #2B2F3E
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  min-height: 100%
+  &__active
+    background-color: #ff2d5a
+    padding: 20px 30px
+    & a
+      text-decoration: none
+      color: white
+  &__logo
+    height: 130px
+  .title
+    color: #565a68
+    padding: 30px
+
+.content
+  position: absolute
+  left: 270px
+  top: 0
+  right: 0
+  padding: 20px
+  background-color: #f9f9f9
+  height: 100%
+  text-align: center
+
+  &__items, &__comments
+    display: inline-block
+    vertical-align: top
+    background-color: #fff
+    padding: 20px
+    border: 1px solid #dedede
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(222,222,222,1)
+    -moz-box-shadow: 2px 2px 4px 0px rgba(222,222,222,1)
+    box-shadow: 2px 2px 4px 0px rgba(222,222,222,1)
+    margin: 10px
+    text-align: initial
+    & > h1
+      color: #565a68
+      padding: 0 0 20px 5px
+
+  &__items
+    width: 480px
+
+  &__comments
+    width: 440px
+
+    .add-comment
+      textarea
+        outline: none
+        border: 2px solid #d9d9d9
+        width: 335px
+        height: 70px
+        resize: none
+        padding: 10px
+
+      .comments__item-logo
+        width: 50px
+        height: 50px
+        background-color: #e6e6e6
+        display: inline-block
+        vertical-align: top
+        margin-right: 5px
+
+
+  // block for items mgmt
+  &__items
+
+    table
+      border-collapse: collapse
+
+      td
+        padding: 5px
+
+      tbody td
+        border-bottom: 2px solid #f2f2f2
+        &:nth-child(2n)
+          text-align: right
+
+    input[type="text"]
+      border: 2px solid #CCCCCC
+      border-radius: 4px
+      padding: 10px
+      width: 290px
+      outline: none
+
+    .btn
+      border-radius: 3px
+      padding: 12px 25px
+      &:hover
+        cursor: pointer
+
+      &-add
+        background-color: #27CCC0
+        border: none
+        color: #ffffff
+        width: 130px
+      &-delete
+        border: 2px solid #ff2d5a
+        color: #ff2d5a
+        background-color: transparent
+
+    .label
+      background-color: #27CCC0
+      border-radius: 10px
+      padding: 5px 10px
+      color: #fff
+      margin-left: 30px
+      font-size: 8pt

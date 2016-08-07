@@ -1,30 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="empeek">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
-<div class="container">
-    <nav class="navbar">
-        <h1>Main</h1>
+<div class="container" ng-controller="MainCtrl">
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <h1 class="title">Main</h1>
+        </div>
         <ul>
-            <li><a href="">Overview</a></li>
+            <li class="sidebar__active"><a href="#">Overview</a></li>
         </ul>
-    </nav>
+    </div>
     <div class="content">
         <div class="content__items">
             <h1>Items</h1>
             <table>
+                <thead>
                 <tr>
                     <td><input type="text" placeholder="Type name here..."></td>
-                    <td><button class="btn-add">Add new</button></td>
+                    <td><button class="btn btn-add" ng-click="add()">Add new</button></td>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>First item with custom name <span class="label">3</span></td>
-                    <td><button class="btn-delete">Delete</button></td>
+                    <td>
+                        <button class="btn btn-delete" ng-click="delete()">Delete</button>
+                    </td>
                 </tr>
+                </tbody>
             </table>
         </div>
         <div class="content__comments">
@@ -37,8 +45,15 @@
                     </div>
                 </li>
             </ul>
+            <div class="add-comment">
+                <span class="comments__item-logo"></span>
+                <textarea></textarea>
+            </div>
         </div>
     </div>
 </div>
+<!--<script src="./bower_components/jquery/dist/jquery.js"></script>-->
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./public/js/main.js"></script>
 </body>
 </html>
