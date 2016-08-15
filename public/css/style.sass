@@ -52,6 +52,7 @@ input, button, textarea
   background-color: #f9f9f9
   height: 100%
   text-align: center
+  overflow: auto
 
   &__items, &__comments
     display: inline-block
@@ -71,8 +72,18 @@ input, button, textarea
   &__items
     width: 480px
 
+
   &__comments
     width: 440px
+
+    .comments
+      li
+        padding: 15px 0
+        &:not(:last-child)
+          border-bottom: 2px solid #f2f2f2
+
+      &__item-content
+        display: inline-block
 
     .add-comment
       textarea
@@ -83,20 +94,25 @@ input, button, textarea
         resize: none
         padding: 10px
 
-      .comments__item-logo
-        width: 50px
-        height: 50px
-        background-color: #e6e6e6
-        display: inline-block
-        vertical-align: top
-        margin-right: 5px
-
+    .comments__item-logo
+      width: 50px
+      height: 50px
+      background-color: #e6e6e6
+      display: inline-block
+      vertical-align: top
+      margin-right: 5px
 
   // block for items mgmt
   &__items
 
     table
       border-collapse: collapse
+
+      tbody
+        tr
+          border-left: 4px solid transparent
+          &:hover
+            cursor: pointer
 
       td
         padding: 5px
@@ -136,3 +152,6 @@ input, button, textarea
       color: #fff
       margin-left: 30px
       font-size: 8pt
+
+.selected
+  border-left: 4px solid #ff2d5a !important

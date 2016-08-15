@@ -21,15 +21,17 @@
             <table>
                 <thead>
                 <tr>
-                    <td><input type="text" placeholder="Type name here..."></td>
-                    <td><button class="btn btn-add" ng-click="add()">Add new</button></td>
+                    <td><input type="text" placeholder="Type name here..." ng-model="item.title"></td>
+                    <td><button class="btn btn-add" ng-click="addItem(item)">Add new</button></td>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>First item with custom name <span class="label">3</span></td>
+                <tr ng-repeat="i in items"
+                    ng-click="setSelected($index)"
+                    ng-class="{selected: $index === idSelectedRow}">
+                    <td>{{i.title}} <span class="label">{{i.comments.length}}</span></td>
                     <td>
-                        <button class="btn btn-delete" ng-click="delete()">Delete</button>
+                        <button class="btn btn-delete" ng-click="deleteItem($index)">Delete</button>
                     </td>
                 </tr>
                 </tbody>
@@ -38,21 +40,22 @@
         <div class="content__comments">
             <h1>Comments #2</h1>
             <ul class="comments">
-                <li>
+                <!--ng-if="idSelectedRow"-->
+                <li ng-repeat="c in comments track by $index">
+                <!--<li ng-repeat="c in getComments()">-->
                     <div class="comments__item">
                         <span class="comments__item-logo"></span>
-                        <div class="comments__item-content"></div>
+                        <div class="comments__item-content">{{c}}</div>
                     </div>
                 </li>
             </ul>
             <div class="add-comment">
                 <span class="comments__item-logo"></span>
-                <textarea></textarea>
+                <textarea ng-keydown="addComment($event)" ng-model="comment" placeholder="Save with CMD+Enter or Ctrl+Enter"></textarea>
             </div>
         </div>
     </div>
 </div>
-<!--<script src="./bower_components/jquery/dist/jquery.js"></script>-->
 <script src="./bower_components/angular/angular.js"></script>
 <script src="./public/js/main.js"></script>
 </body>
