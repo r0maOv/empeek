@@ -41,6 +41,7 @@ app.controller('MainCtrl', ['$scope', 'EmpeekStorage', function ($scope, EmpeekS
     $scope.comment = '';
     
     $scope.addComment = function (e) {
+        if (! $scope.idSelectedRow) return;
         if ((e.keyCode === 13 && e.ctrlKey) || (e.keyCode === 13 && e.metaKey)) {
             var cache = EmpeekStorage.getData();
             cache[$scope.idSelectedRow].comments.push($scope.comment);
