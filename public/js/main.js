@@ -20,7 +20,6 @@ app.controller('MainCtrl', ['$scope', 'EmpeekStorage', function ($scope, EmpeekS
     $scope.idSelectedRow = null;
 
     $scope.setSelected = function (idSelectedRow) {
-        console.log(idSelectedRow);
         $scope.idSelectedRow = idSelectedRow;
         getComments(idSelectedRow);
     };
